@@ -1,0 +1,29 @@
+(in-package :public)
+
+(clsql-sys:def-view-class entity ()
+  ((id
+    :type (string 64)
+    :reader id
+    :db-kind :key
+    :initarg :id)
+   (title
+    :type (string 50)
+    :accessor title
+    :initarg :title
+    :db-constraints :unique)
+   (description
+    :type text
+    :accessor description
+    :initarg :description)
+   (due-time
+    :type clsql:wall-time
+    :accessor due-time
+    :initarg :due-time)
+   (parent-id
+    :type (string 64)
+    :accessor parent-id
+    :initarg :parent-id)
+   (parent-info
+    :db-kind :virtual
+    :accessor parent-info))
+  (:base-table tasks))

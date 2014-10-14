@@ -1,0 +1,4 @@
+(in-package :public)
+
+(defun make-uuid-string ()
+  (uuid:print-bytes nil (uuid:make-v4-uuid)))

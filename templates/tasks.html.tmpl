@@ -1,0 +1,6 @@
+{% extends "base.html.tmpl" %}
+{% block body %}
+<br/><br/>
+<div class="tasks">
+  {% lisp (public:fill-tasks-html-from-parent-tasks (public::select-all-tasks :only-parent-p t)) %}
+{% endblock %}

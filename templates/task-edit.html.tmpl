@@ -1,0 +1,34 @@
+{% extends "base.html.tmpl" %}
+{% block body %}
+<br/><br/>
+<form id="task-edit-form" onsubmit="submitTaskEdit('{{ post-url }}', '{{ action }}', '{{ tasks-get-url }}'); return false;">
+<input id="id" class="hide" value="{{ task.id }}">				   
+<div class="row">
+  <div class="half-row">
+    <label>Title*</label>
+    <input id="title" type="text" value="{{ task.title }}">
+  </div>
+  <div class="half-row">
+    <label>Due date*</label>
+    <input id="date" type="date" placeholder="yyyy-mm-dd" value="{% if task.due-date %}{% lisp (public:date-to-yyyy-mm-dd (public:template-variable "task.due-date"))%}{% endif %}">
+  </div>
+</div>
+<div class="row">
+  <div class="half-row">
+    <label>Description</label>
+    <input id="description" type="text" value="{{ task.description }}">
+  </div>
+  <div class="half-row">
+    <label>Parent</label>
+    <select id="parent-task">
+      <option value="">Not Applicable</option>	    
+      {% for parent-task in parent-tasks %}
+      <option value="{% lisp (first (public:template-variable "parent-task")) %}" {% if task.parent-id %}{% lisp (if (equal (first (public:template-variable "parent-task")) (public:template-variable "task.parent-id")) "selected='selected'" "")%}{% endif %}>{% lisp (second (public:template-variable "parent-task")) %}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+</form>
+<button class="float-right" onclick="$('#task-edit-form').submit();">Submit</a>
+<label> 
+{% endblock %}

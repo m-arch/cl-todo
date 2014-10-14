@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ToDo Tasks</title>
+{% include "css-include.html.tmpl" %}
+</head>
+<body>
+<div id="wrap">
+  <h1>My simple to do tasks</h1>
+   <ul id="nav">
+     <li><a href='{{ home-url }}'>Home</a></li>
+     <li><a href='{{ tasks-get-url }}'>View tasks</a></li>
+     <li><a href='{{ new-task-url }}'>Create a new task</a></li>
+   </ul>
+   <div id="content">
+     <h2> {{ page-title }} </h2>
+  {% block body %}{% endblock %}
+   </div>
+</div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+{% for file in js-files %}
+  <script scr="{% lisp (merge-pathnames (template-variable "js-directory") (template-varaiable "file")) %}">
+{% endfor %} 
+</html>

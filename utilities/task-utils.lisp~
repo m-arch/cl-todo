@@ -1,0 +1,14 @@
+(in-package :public)
+
+(defun fill-tasks-html-from-parent-tasks (tasks)
+  (loop for task in tasks
+     do
+       (format nil "<div class='task-~A'><p><a href='~A'>~A </b><span class='expiry-date'>~A</span><span class='expiry-date'>~A</span><span class='delete-button'><a href='~A'>X</a></span></p>~A</div>" 
+	       (cond 
+		 ((done-p task)
+		  "done")
+		 ((clsql:date>= (clsql:get-date) (due-date task))
+		  "pending")
+		 (t
+		  "delay"))
+	       (id task) (genurl 'task-get :action "edit" :id 
