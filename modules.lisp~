@@ -1,2 +1,0 @@
-(restas:define-module :public
-  (:use :cl))
