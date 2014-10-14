@@ -15,7 +15,7 @@
   (let ((task (select-task-by-id (data-param "id")))
 	(parent-tasks (select-tasks-id-and-title)))
     (list
-     :post-url (genurl 'task-post)
+     :post-url "/task"
      :action action
      :page-title (if task (title task) "New Task")
      :task task
