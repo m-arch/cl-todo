@@ -17,7 +17,7 @@
 				(description task) 
 				"no description")
 			    (date-string (due-date task)) 
-			    (format nil "submitTaskEdit(\"~A\",\"~A\",\"~A\",\"~A\");return false;" (genurl 'task-post) "delete" (genurl 'tasks-get) (id task))
+			    (format nil "submitTaskEdit(\"~A\",\"~A\",\"~A\",\"~A\");return false;" "/task" "delete" "/tasks" (id task))
 			    (if (not (done-p task))
 				(format nil "<button onclick='submitTaskEdit(\"~A\", \"~A\", \"~A\", \"~A\"); return false;'>done</button>" 
 					"/task" "complete" "/tasks" (id task))
