@@ -1,6 +1,0 @@
-{% extends "base.html.tmpl" %}
-{% block body %}
-<h2> {{ page-title }} </h2>
-<br/><br/>
-<p>{{ project-description }} </p>
-{% endblock %}
