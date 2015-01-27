@@ -14,7 +14,8 @@
 								  :pool t
 								  :database-type ,*database-type*)
 				   (clsql-sys:locally-enable-sql-reader-syntax)
-				   ,@body))))
+				   ,@body
+				   (clsql-sys:locally-disable-sql-reader-syntax)))))
 	 (funcall temp-func-name)))))
 
 (defmacro define-route (name 
