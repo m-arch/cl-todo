@@ -36,7 +36,7 @@ content-type: is the route content type (eg. 'application/json')"
 	       (append `(,,template-file)
 		       ,@body
 		       (list
-			:home-url "/"
-			:new-task-url "/task/add"
-			:tasks-get-url "/tasks")))))))
+			:home-url (genurl 'home-get)
+			:new-task-url (genurl 'task-get :action "add")
+			:tasks-get-url (genurl 'tasks-get))))))))
 
