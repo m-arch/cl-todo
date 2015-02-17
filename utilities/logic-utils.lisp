@@ -38,14 +38,14 @@
       nil))
 
 (defun date-string (date)
-   (if (string= (symbol-name (type-of date)) "DATE")
+   (if (clsql-sys:date-p date)
        (multiple-value-bind (year month day)
       (clsql:date-ymd date)
 	 (format nil "~A, ~A ~A" day (nth (1- month) +MONTHS+) (mod year 2000)))))
 
 
 (defun date-to-yyyy-mm-dd (date)
-   (if (string= (symbol-name (type-of date)) "DATE")
+   (if (clsql-sys:date-p date)
        (multiple-value-bind (year month day)
       (clsql:date-ymd date)
 	 (format nil "~A-~2,'0d-~2,'0d" year month day))))
