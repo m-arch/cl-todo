@@ -1,15 +1,14 @@
 (in-package :public)
 
-(defparameter *database-host* "localhost")
-(defparameter *database-name* "marcdb")
-(defparameter *database-user* "root")
-(defparameter *database-password* "")
-(defparameter *database-type* :mysql)
-(defparameter +HOSTNAME+ "localhost:8080")
-(defparameter *template-directory*
+(defvar *database-host* "localhost")
+(defvar *database-name* "marcdb")
+(defvar *database-user* "root")
+(defvar *database-password* "")
+(defvar *database-type* :mysql)
+(defvar *template-directory*
   (merge-pathnames #p"templates/" instance:*base-directory*))
-(defparameter *js-directory*
+(defvar *js-directory*
   (merge-pathnames #p"javascript/" instance:*base-directory*))
 
-
-(defparameter +MONTHS+ '("Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"))
+(defvar +HOSTNAME+ "localhost:8080")
+(defvar +MONTHS+ '("Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"))

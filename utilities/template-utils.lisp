@@ -9,9 +9,7 @@
 				   (merge-pathnames file (symbol-value (find-symbol
 									(symbol-name '*template-directory*) package)))))
 		(func nil))
-	    (log:fatal original-file)
 	    (setf func (djula:compile-template* (namestring original-file)))
-	    (log:fatal func file)
 	    (apply #'djula:render-template* (append `(,func nil) args))))
 
 (defun template-variable (var-name &key (format-func nil))

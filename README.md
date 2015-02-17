@@ -8,7 +8,7 @@ I am using mysql database, to correctly be able to compile the project, the data
 
 mysql> create database marcdb;
 
-Browse to the folder directory and compile or push to asdf "themouallem.asd"
+Browse to the folder directory and compile or push to asdf "cl-todo.asd"
 Launch project using quickload command (ql:quickload :cl-todo)
 
 Go to http:://localhost:8080
