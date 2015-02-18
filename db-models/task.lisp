@@ -44,6 +44,7 @@
 
 (clsql:locally-enable-sql-reader-syntax)
 
+
 (dbfunc insert-task (title description due-date &key parent-id done-p)
 	(let ((result (make-instance 'task :title title :description description
 				     :due-date due-date :parent-id parent-id
@@ -52,9 +53,9 @@
 	  result))
 
 (dbfunc select-tasks-by-parent-id (parent-id)
-  (clsql:select 'task :flatp t :refresh t
-		:database current-db
-		:where [= [parent-id] parent-id]))
+	(clsql:select 'task :flatp t :refresh t
+		      :database current-db
+		      :where [= [parent-id] parent-id]))
 
 (dbfunc select-task-by-id (id)
 	(first (clsql:select 'task :flatp t :refresh t
@@ -62,6 +63,7 @@
 			     :where [= [id] id])))
 
 (dbfunc select-all-tasks (&key only-parent-p only-not-expired)
+	(log:fatal current-db)
 	(let ((condition 
 	       (cond 
 		 ((and (not only-parent-p) only-not-expired)

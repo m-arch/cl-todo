@@ -7,9 +7,12 @@
 
 
 (define-route tasks-get ("/tasks" :template-file "tasks.html.tmpl")
+;; "This route does not get the tasks to fill the template,
+;; instead the template file iteslf uses lisp tags to call the function fill-tasks-html-from-parent-tasks.
+;; This is done only for fun purpose and to use recursivity.
+;; An iterative solution would be to get all tasks and then use hash table where a parent task points to it childs tasks and fills the template." 
     (list
-     :page-title "My Tasks"
-     :empty-message "You currently have no tasks"))
+     :page-title "My Tasks"))
 
 (define-route task-get ("/task/:action" :template-file "task-edit.html.tmpl")
   (let ((task (select-task-by-id (data-param "id")))

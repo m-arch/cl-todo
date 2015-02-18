@@ -13,9 +13,7 @@
 				 (clsql:with-database (current-db `(,*database-host* ,,db-name ,*database-user* ,*database-password*)
 								  :pool t
 								  :database-type ,*database-type*)
-				   (clsql-sys:locally-enable-sql-reader-syntax)
-				   ,@body
-				   (clsql-sys:locally-disable-sql-reader-syntax)))))
+				   ,@body))))
 	 (funcall temp-func-name)))))
 
 (defmacro define-route (name 
