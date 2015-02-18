@@ -12,5 +12,3 @@
 
 (defvar +HOSTNAME+ "localhost:8080")
 (defvar +MONTHS+ '("Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"))
-
-

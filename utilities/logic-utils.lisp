@@ -6,9 +6,9 @@
 
 (defun type-to-string (type)
   (cond 
-    ((string= type "pending")
+    ((eql type "pending")
      "pending ")
-    ((string= type "parents-pending")
+    ((eql type "parents-pending")
      "pending parent ")
     (t
      "")))
@@ -16,7 +16,7 @@
 
 (defun parse-date-string (str)
   "Input string, outputs a clsql date"
-  (if (or (not str) (not (stringp str)) (string= str ""))
+  (if (or (not str) (not (stringp str)) (eql str ""))
       (clsql:get-date)
       (let ((parsed (cl-ppcre:split "-" str)))
 	(handler-case 
@@ -29,7 +29,7 @@
 (defun to-bool (str)
   (if str
       (if (integerp str)
-	  (if (= str 0)
+	  (if (eql str 0)
 	      nil
 	      t)
 	  (if (or (equal "true" str) (equal "TRUE" str))

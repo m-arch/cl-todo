@@ -28,7 +28,7 @@ template-file: is the file path that will fill the page
 content-type: is the route content type (eg. 'application/json')"
   `(restas:define-route ,name (,url :method ,method :content-type ,content-type)
      (cond 
-       ((string= ,content-type "application/json")
+       ((eql ,content-type "application/json")
 	(json:encode-json-to-string `,,@body))
        (t
 	(apply #'fill-template 
